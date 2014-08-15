@@ -78,4 +78,59 @@ function bp_crear_restaura_members_template()
 add_action( 'bp_member_header_actions', 'bp_crear_null_members_template', 0 );
 add_action( 'bp_member_header_actions', 'bp_crear_restaura_members_template', 100 );
 
+/*
+ * Campos para el bp-profile-search se vean bien con los de xprofile
+ * Ver doc en http://dontdream.it/bp-profile-search/custom-profile-field-types/
+ */
+function bp_crear_bps_custom ($field_type, $field)
+{
+    switch ($field->type) {
+    case 'richtext':
+        $field_type = 'textarea';
+        break;
+    case 'birthdate':
+        $field_type = 'datebox';
+        break;
+    /* para que lo tome el filtro y ponemos clases nuestras */
+/*
+ *   case 'checkbox':
+ *       $field_type = 'checkbox_crear';
+ *       break;
+ */
+    }
+    return $field_type;
+
+}
+add_filter ('bps_field_validation_type', 'bp_crear_bps_custom', 10, 2);
+add_filter ('bps_field_html_type', 'bp_crear_bps_custom', 10, 2);
+add_filter ('bps_field_criteria_type', 'bp_crear_bps_custom', 10, 2);
+add_filter ('bps_field_query_type', 'bp_crear_bps_custom', 10, 2);
+
+/*
+ * Poner los checkbox dentro de un div editfield y con un label propio.
+ */
+function bp_crear_bps_checkbox ($html, $field, $label, $range)
+{
+    if ($field->type == 'checkbox') {
+        $id = $field->id;
+        $fname = 'field_'. $id;
+
+        $html = "<div class='editfield'>";
+        $html .= "<label for='$fname'>$label</label>";
+
+        $posted = isset ($_REQUEST[$fname])? $_REQUEST[$fname]: array ();
+        $options = bps_get_options ($id);
+        foreach ($options as $option) {
+            $option = trim ($option);
+            $value = esc_attr (stripslashes ($option));
+            $selected = (in_array ($option, $posted))? "checked='checked'": "";
+            $html .= "<input $selected type='checkbox' name='{$fname}[]' value='$value'>$value";
+        }
+        $html .= '</div>';
+    }
+
+    return $html;
+}
+/* add_filter ('bps_field_html', 'bp_crear_bps_checkbox', 10, 4); */
+
 ?>
