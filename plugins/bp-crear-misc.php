@@ -36,4 +36,15 @@ function bp_crear_add_muestreo_button()
     return;
 }
 add_action( 'bp_member_header_actions', 'bp_crear_add_muestreo_button', 20 );
+
+/**
+ * Ver Restrict Author Posting
+ */
+function bp_crear_restrict_category($user_id)
+{
+    update_user_meta( $user_id, '_access', 2 );
+}
+
+add_action( 'user_register', 'bp_crear_restrict_category', 10 );
+
 ?>
