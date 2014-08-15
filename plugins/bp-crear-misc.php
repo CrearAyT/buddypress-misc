@@ -47,4 +47,35 @@ function bp_crear_restrict_category($user_id)
 
 add_action( 'user_register', 'bp_crear_restrict_category', 10 );
 
+/**
+ * Una chacaleada total.
+ * Ver en http://buddypress.org/support/topic/bp_loggedin_user_id-bp_get_member_user_id-always-true/
+ */
+function bp_crear_null_members_template()
+{
+    global $members_template;
+    global $crear_members_template;
+    if (isset($crear_members_template)) {
+        return;
+    }
+
+    $members_template = NULL;
+    $crear_members_template = $members_template;
+}
+
+function bp_crear_restaura_members_template()
+{
+    global $members_template;
+    global $crear_members_template;
+    if (isset($crear_members_template)) {
+        $members_template = $crear_members_template;
+        $crear_members_template = NULL;
+        return;
+    }
+}
+
+
+add_action( 'bp_member_header_actions', 'bp_crear_null_members_template', 0 );
+add_action( 'bp_member_header_actions', 'bp_crear_restaura_members_template', 100 );
+
 ?>
