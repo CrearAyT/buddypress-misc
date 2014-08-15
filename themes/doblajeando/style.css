@@ -1,0 +1,87 @@
+/*
+ * Theme Name: Theme Doblajeando
+ * Theme URI: http://elarteylatecnologia.com.ar
+ * Description: Tema para la red Dobalejando
+ * Author: Crear - Arte y Tecnología
+ * Author URI: http://elarteylatecnologia.com.ar
+ * Template: flat
+ * Version: 1.0
+ * */
+
+@import url("../flat/style.css");
+
+a {
+    color: rgb(95, 171, 218);
+}
+a:hover {
+    color: rgb(62, 145, 180);
+}
+
+.label {
+    color: rgb(62, 145, 180);
+}
+#secondary {
+    color: rgb(255, 255, 255);
+}
+
+#secondary .widget-title {
+    color: rgb(255, 255, 255);
+}
+
+#secondary ul {
+    list-style-type: none;
+}
+
+span.activity {
+    font-size: 95% !important;
+}
+
+/* #buddypress ul.button-nav li.current a { */
+#buddypress ul.button-nav li a {
+    font-size: 95% !important;
+}
+
+#buddypress a.button {
+    font-size: 95% !important;
+}
+
+div.generic-button a {
+    font-size: 85% !important;
+}
+
+#signup_submit {
+    font-size: 120% !important;
+    border: 1px solid rgb(79, 93, 115) !important;
+}
+
+#buddypress input[type=submit] {
+    font-size: 100% !important;
+}
+
+#buddypress table.profile-fields tr td.label {
+    display: table-cell;
+    color: rgb(79, 93, 115);
+    font-size: 100%;
+    /* vertical-align: text-top; */
+}
+
+span.count {
+    /* background: rgb(224, 153, 93) !important; */
+    color: rgb(79, 93, 115) !important;
+}
+
+.tmce-active {
+    border: 1px solid rgb(62, 145, 180) !important;
+}
+
+.input {
+    border: 1px solid rgb(62, 145, 180) !important;
+}
+
+.bp-ap-selectbox {
+    display: inline;
+}
+
+select#activity-privacy {
+    display: inline;
+}
