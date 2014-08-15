@@ -133,4 +133,12 @@ function bp_crear_bps_checkbox ($html, $field, $label, $range)
 }
 /* add_filter ('bps_field_html', 'bp_crear_bps_checkbox', 10, 4); */
 
+/* para el plugin user-switching */
+add_action('init', 'no_bp_redirect_on_user_switching', 9);
+function no_bp_redirect_on_user_switching() {
+    if ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'switch_to_user' ) {
+        remove_filter( 'login_redirect', 'bp_login_redirect' );
+    }
+}
+
 ?>
