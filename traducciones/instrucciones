@@ -1,0 +1,4 @@
+editar buddypress-es_ES.po
+msgfmt buddypress-es_ES.po -o buddypress-es_ES.mo
+
+copiar el .mo en wp-content/languages/plugins
