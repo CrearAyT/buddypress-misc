@@ -85,3 +85,12 @@ span.count {
 select#activity-privacy {
     display: inline;
 }
+
+#buddypress div#item-header div#item-actions {
+    width: 30%;
+    overflow-wrap: break-word;
+}
+
+#buddypress div#item-header div#item-actions h3 {
+    font-size: 95% !important;
+}
