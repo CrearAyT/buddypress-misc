@@ -23,3 +23,9 @@ function doblajeando_login_logo_url_title() {
     return 'Doblajeando';
 }
 add_filter( 'login_headertitle', 'doblajeando_login_logo_url_title' );
+
+/* Setea el ancho de los embeds para que se vean bien en grupos / activity */
+function doblajeando_embed_size() {
+    return array( 'width' => 640 );
+}
+add_filter( 'embed_defaults', 'doblajeando_embed_size' );
