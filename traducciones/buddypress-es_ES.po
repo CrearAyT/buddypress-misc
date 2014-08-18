@@ -4593,6 +4593,24 @@ msgstr[0] ""
 msgstr[1] ""
 "Viendo miembros de %1$s al %2$s (De un total: %3$s)"
 
+#: bp-members/bp-members-template.php:347
+msgid "Viewing member %1$s to %2$s (of %3$s active member)"
+msgid_plural "Viewing member %1$s to %2$s (of %3$s active members)"
+msgstr[0] "Viendo miembro %1$s (de %3$s activos)"
+msgstr[1] "Viendo miembros %1$s a %2$s (de %3$s activos)"
+
+#: bp-members/bp-members-template.php:349
+msgid "Viewing member %1$s to %2$s (of %3$s member with friends)"
+msgid_plural "Viewing member %1$s to %2$s (of %3$s members with friends)"
+msgstr[0] "Viendo miembro %1$s (de %3$s con amigos)"
+msgstr[1] "Viendo miembros %1$s a %2$s (de %3$s con amigos)"
+
+#: bp-members/bp-members-template.php:351
+msgid "Viewing member %1$s to %2$s (of %3$s member online)"
+msgid_plural "Viewing member %1$s to %2$s (of %3$s members online)"
+msgstr[0] "Viendo miembro %1$s (de %3$s conectados)"
+msgstr[1] "Viendo miembros %1$s a %2$s (de %3$s conectados)"
+
 msgid "Viewing topic %s to %s (of %d topic%s)"
 msgid_plural "Viewing topic %s to %s (of %d total topics%s)"
 msgstr[0] "Viendo el tema %s de %s (de %d tema%s)"
