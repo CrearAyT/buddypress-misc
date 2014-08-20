@@ -141,4 +141,39 @@ function no_bp_redirect_on_user_switching() {
     }
 }
 
+/* filtrar campos de xprofile para que anden los embed */
+function bp_crear_xprofile_filter( $field_value, $field_type = 'textbox' ) {
+    $xpost = get_post();
+
+    /*
+     * WP_Embed precisa el post actual para cachear resultados, entre otras cosas.
+     * Si no hay uno seteamos el primero que exista.
+     */
+    if ( ($xpost == null) || $xpost->ID == 0 ){
+        $args = array(
+            'posts_per_page'   => 1,
+            'offset'           => 0,
+            'category'         => '',
+            'orderby'          => 'post_date',
+            'order'            => 'ASC',
+            'include'          => '',
+            'exclude'          => '',
+            'meta_key'         => '',
+            'meta_value'       => '',
+            'post_type'        => 'post',
+            'post_mime_type'   => '',
+            'post_parent'      => '',
+            'post_status'      => '',
+            'suppress_filters' => true );
+
+        global $post;
+        $post = get_posts($args)[0];
+    }
+
+    $content = $field_value;
+    $content = apply_filters('the_content', $content);
+    return $content;
+}
+add_filter('bp_get_the_profile_field_value', 'bp_crear_xprofile_filter', 10, 2);
+
 ?>
