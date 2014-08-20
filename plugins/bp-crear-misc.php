@@ -176,4 +176,10 @@ function bp_crear_xprofile_filter( $field_value, $field_type = 'textbox' ) {
 }
 add_filter('bp_get_the_profile_field_value', 'bp_crear_xprofile_filter', 10, 2);
 
+/* Hacer que los campos custom en perfil no sean links a una busqueda */
+function remove_xprofile_links() {
+    remove_filter( 'bp_get_the_profile_field_value', 'xprofile_filter_link_profile_data', 9, 2 );
+}
+add_action('bp_setup_globals', 'remove_xprofile_links');
+
 ?>
